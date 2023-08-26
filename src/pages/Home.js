@@ -7,7 +7,7 @@ import { ReactComponent as Background } from '../backgrounds/Desktop - 10 (1).sv
 import "../Home.css";
 import logo from "../assets/Group 9.svg";
 import flame from "../assets/Vector.svg";
-import clipboard from "../assets/clipboard.svg";
+import clipboard from "../assets/board.svg";
 import friend from "../assets/friend.svg";
 import journal from "../assets/journal.svg";
 
@@ -27,14 +27,17 @@ const Home = () => {
     <div class="all"> 
     <div class="top-nav">
       <div class="flex items-left">
-        <img className="logoname" src={logo} style={{ marginTop: 2, alignItems: "left", marginRight: 330}}/>
+        <img className="logoname" src={logo}/>
       </div>
       <div class="flex items-right">
       <div class="progress-out mt-3"> 
         <div class="progress-in"> </div>
-
-      </div>
+        </div>
+      <div class="flame">
         <img className="flame-image" src={flame} style={{ width: '50px', height: '45px', marginTop: 2, marginLeft: 3}}/>
+        <h1 class="streak">1</h1>
+        </div>
+      
       </div>
       
       
