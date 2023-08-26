@@ -3,10 +3,31 @@ import Hero from "../components/Hero";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import RectangleComponent from "../components/RectangleComponent";
-import "./Home.css";
+import { ReactComponent as Background } from '../backgrounds/Desktop - 10 (1).svg';
+import "../Home.css";
+import logo from "../assets/logo-name.png";
+
 
 const Home = () => {
   return (
+    <div class="all"> 
+    <div class="top-nav">
+      <div class="logo">
+        <img className="logo-text" src={logo}  alt="logo" />
+      </div>
+      <div class="progress-out"> 
+        <div class="progress-in"> </div>
+      </div>
+      <div class="flame">
+        <img className="flame-image" src="public/flame-image.png" alt="flame" />
+      </div>
+    </div>
+      <Background />
+      <div class="side-nav"></div>
+    </div>
+
+
+    /*
     <div
       className="max-w-screen-lg mx-auto 
         flex flex-col items-center justify-center h-full p-10 md:flex-row  relative"
@@ -28,6 +49,7 @@ const Home = () => {
         />
       </div>
     </div>
+    */
   );
 };
 

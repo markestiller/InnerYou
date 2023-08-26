@@ -1,0 +1,40 @@
+body{
+    background-color: #EAF9F0;
+}
+
+.top-nav{
+    background-color: #252B48;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: left;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.logo-text{
+    height: 50px;
+    width: 100px;
+}
+
+.progress-out{
+    height: 30px;
+    width: 715px;
+    border-radius: 20px;
+    background-color: #F9EAF7;
+}
+
+.progress-in{
+    height: 30px;
+    width: 500px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #64CCC5;
+}
+
+.side-nav{
+    width: 225px;
+    height: 775px;
+    border-radius: 15px;
+    background-color: #252B48;
+}
