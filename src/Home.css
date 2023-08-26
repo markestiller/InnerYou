@@ -6,8 +6,6 @@ body{
     background-color: #252B48;
     padding: 15px;
     display: flex;
-    justify-content: flex-end;
-    align-items: left;
     flex-direction: row;
     justify-content: flex-end;
 }
@@ -35,6 +33,13 @@ body{
 .side-nav{
     width: 225px;
     height: 775px;
-    border-radius: 15px;
+    border-radius: 100px;
     background-color: #252B48;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-button, .chat-button, .write-button{
+    background-color: #F9EAF7;
+    border-radius: 20px;
 }

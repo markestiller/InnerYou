@@ -5,25 +5,56 @@ import { Link } from "react-router-dom";
 import RectangleComponent from "../components/RectangleComponent";
 import { ReactComponent as Background } from '../backgrounds/Desktop - 10 (1).svg';
 import "../Home.css";
-import logo from "../assets/logo-name.png";
+import logo from "../assets/Group 9.svg";
+import flame from "../assets/Vector.svg";
+import clipboard from "../assets/clipboard.svg";
+import friend from "../assets/friend.svg";
+import journal from "../assets/journal.svg";
 
 
 const Home = () => {
+  const NavContainerStyle = {
+    position: "absolute",
+    bottom: "150px", // Adjust the vertical position as needed
+    left: "50%",
+    transform: "translateX(-290%)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "left",
+  };
+  
   return (
     <div class="all"> 
     <div class="top-nav">
-      <div class="logo">
-        <img className="logo-text" src={logo}  alt="logo" />
+      <div class="flex items-left">
+        <img className="logoname" src={logo} style={{ marginTop: 2, alignItems: "left", marginRight: 330}}/>
       </div>
-      <div class="progress-out"> 
+      <div class="flex items-right">
+      <div class="progress-out mt-3"> 
         <div class="progress-in"> </div>
+
       </div>
-      <div class="flame">
-        <img className="flame-image" src="public/flame-image.png" alt="flame" />
+        <img className="flame-image" src={flame} style={{ width: '50px', height: '45px', marginTop: 2, marginLeft: 3}}/>
       </div>
+      
+      
     </div>
       <Background />
-      <div class="side-nav"></div>
+      <div className="flex items-left" style={{ position: "relative" }}>
+        <div style={NavContainerStyle}>
+          <div class="side-nav"> 
+            <div class="list-button">
+              <img className="clipboard" src={clipboard} />
+            </div>
+            <div class="chat-button">
+              <img className="friend" src={friend} />
+            </div>
+            <div class="write-button">
+              <img className="journal" src={journal}/>
+            </div>        
+          </div>
+        </div>
+      </div>
     </div>
 
 

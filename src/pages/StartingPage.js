@@ -1,5 +1,4 @@
 import React from "react";
-import Hero from "../components/Hero";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { ReactComponent as Background } from '../backgrounds/Desktop - 8 (1).svg';
@@ -9,13 +8,13 @@ import { ReactComponent as Background } from '../backgrounds/Desktop - 8 (1).svg
 const StartingPage = () => {
   const buttonContainerStyle = {
     position: "absolute",
-    bottom: "15px", // Adjust the vertical position as needed
+    bottom: "0px", // Adjust the vertical position as needed
     left: "50%",
-    transform: "translateX(-50%)",
+    transform: "translateX(-50%) translateY(20%)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    // marginTop: 20,
+    marginTop: 10,
   };
   return(
     <div className="flex justify-end items-center"> 
@@ -45,6 +44,7 @@ const StartingPage = () => {
                 width: 550,
                 height: 100,
                 borderRadius:10,
+                marginBottom: 2,
                 fontFamily:'Bubblegum Regular',
                 fontSize: 35,
                 '&:hover': {
