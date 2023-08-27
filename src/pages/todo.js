@@ -3,37 +3,36 @@ import Hero from "../components/Hero";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import RectangleComponent from "../components/RectangleComponent";
-import { ReactComponent as Background } from '../backgrounds/Desktop - 10 (1).svg';
+import { ReactComponent as Background } from "../backgrounds/Desktop - 10 (1).svg";
 import "../Home.css";
 import logo from "../assets/Group 9.svg";
 import flame from "../assets/Vector.svg";
 import clipboard from "../assets/board.svg";
 import friend from "../assets/friend.svg";
 import journal from "../assets/journal.svg";
-import mascot from '../assets/Group 4 (1).svg';
+import mascot from "../assets/Group 4 (1).svg";
 
+const ToDo = ({ generatedActivities }) => {
+  const [tasks, setTasks] = useState([
+    { id: 1, text: "Task 1", completed: false },
+    { id: 2, text: "Task 2", completed: false },
+    { id: 3, text: "Task 3", completed: false },
+    { id: 4, text: "Task 4", completed: false },
+    { id: 5, text: "Task 5", completed: false },
+    { id: 6, text: "Task 6", completed: false },
+    { id: 7, text: "Task 7", completed: false },
+    { id: 8, text: "Task 8", completed: false },
+    { id: 9, text: "Task 9", completed: false },
+    { id: 10, text: "Task 10", completed: false },
+  ]);
 
-const ToDo= () => {
-    const [tasks, setTasks] = useState([
-        { id: 1, text: "Task 1", completed: false },
-        { id: 2, text: "Task 2", completed: false },
-        { id: 3, text: "Task 3", completed: false },
-        { id: 4, text: "Task 4", completed: false },
-        { id: 5, text: "Task 5", completed: false },
-        { id: 6, text: "Task 6", completed: false },
-        { id: 7, text: "Task 7", completed: false },
-        { id: 8, text: "Task 8", completed: false },
-        { id: 9, text: "Task 9", completed: false },
-        { id: 10, text: "Task 10", completed: false },
-      ]);
-    
-      const handleTaskToggle = (taskId) => {
-        setTasks((prevTasks) =>
-          prevTasks.map((task) =>
-            task.id === taskId ? { ...task, completed: !task.completed } : task
-          )
-        );
-      };
+  const handleTaskToggle = (taskId) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
   const NavContainerStyle = {
     position: "absolute",
     bottom: "150px", // Adjust the vertical position as needed
@@ -75,7 +74,12 @@ const ToDo= () => {
             <img
               className="flame-image"
               src={flame}
-              style={{ width: "50px", height: "45px", marginTop: 2, marginLeft: 3 }}
+              style={{
+                width: "50px",
+                height: "45px",
+                marginTop: 2,
+                marginLeft: 3,
+              }}
               alt="Flame"
             />
             <h1 class="streak">1</h1>
@@ -102,41 +106,41 @@ const ToDo= () => {
         </div>
       </div>
       {/* <div className="todo-page" > */}
-        <div className="form-todo" style={formTodoStyle}>
+      <div className="form-todo" style={formTodoStyle}>
         <div style={backgroundBoxStyle}>
-        <h1>Daily Objectives</h1>
-      </div>
-        <ul>
-            {tasks.map((task) => (
-            <li key={task.id}>
-                <label>
-                <input
-                    type="checkbox"
-                    checked={task.completed}
-                    onChange={() => handleTaskToggle(task.id)}
-                />
-                <span className={task.completed ? "completed" : ""}>{task.text}</span>
-                </label>
-            </li>
-            ))}
-        </ul>
+          <h1>Daily Objectives</h1>
         </div>
-        {/* </div> */}
+        <ul>
+          {tasks.map((task) => (
+            <li key={task.id}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={task.completed}
+                  onChange={() => handleTaskToggle(task.id)}
+                />
+                <span className={task.completed ? "completed" : ""}>
+                  {task.text}
+                </span>
+              </label>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* </div> */}
       <div className="flex items-end">
-        
-      <img
+        <img
           className="mascot"
           src={mascot}
           style={{
             transform: "translateX(300%) translateY(-50%)",
-            width: "350px", 
-            height: "350px", 
+            width: "350px",
+            height: "350px",
           }}
           alt="Mascot"
         />
-     </div>
+      </div>
     </div>
-  
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ToDo from "../pages/todo";
 
 const Chatbot = () => {
   const [daySummary, setDaySummary] = useState("");
@@ -84,5 +85,10 @@ const Chatbot = () => {
     </div>
   );
 };
+
+{
+  /* Pass generatedActivities to ToDo component */
+}
+<ToDo generatedActivities={generatedActivities} />;
 
 export default Chatbot;

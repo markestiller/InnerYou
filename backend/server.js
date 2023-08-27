@@ -86,7 +86,7 @@ app.post("/analyze", async (req, res) => {
         max_tokens: 100,
         truncate: "END",
         return_likelihoods: "NONE",
-        prompt: `Generate 3 engaging activities based on ${latestEmotion} concisely`, // Use the emotion result as the prompt
+        prompt: `Generate 3 engaging activities based on ${latestEmotion} concisely, separated with new lines`, // Use the emotion result as the prompt
       }),
     };
 
