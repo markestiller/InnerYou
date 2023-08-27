@@ -4,7 +4,7 @@ import Main from "./pages/Main";
 import StartingPage from "./pages/StartingPage";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Journal from "./pages/Journal";
+import Journ from "./pages/journ";
 import ToDo from "./pages/todo";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path: "/Journal",
-    element: <Journal />,
+    path: "/journ",
+    element: <Journ />,
   },
   {
     path: "/todo",

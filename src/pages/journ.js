@@ -5,16 +5,18 @@ import { Link } from "react-router-dom";
 import RectangleComponent from "../components/RectangleComponent";
 import { ReactComponent as Background } from '../backgrounds/Desktop - 10 (1).svg';
 import "../Home.css";
+import "../journ.css";
 import "../index.css";
 import logo from "../assets/Group 9.svg";
 import flame from "../assets/Vector.svg";
 import clipboard from "../assets/board.svg";
 import friend from "../assets/friend.svg";
 import journal from "../assets/journal.svg";
-import mascot from '../assets/Group 4 (1).svg';
+import mascot from "../assets/Group 4 (1).svg";
+import blob from "../assets/journal-blob.svg";
 
 
-const Home = () => {
+const Journ= () => {
   const NavContainerStyle = {
     position: "absolute",
     bottom: "150px", // Adjust the vertical position as needed
@@ -44,23 +46,24 @@ const Home = () => {
       
       
     </div>
+    <div class="all-after">
       {/* <Background /> */}
       {/* <div className="flex items-left" style={{ position: "relative" }}> */}
         <div style={NavContainerStyle}>
           <div class="side-nav"> 
             <div class="list-button">
-            <Link to="/todo">
-              <img className="clipboard" src={clipboard} />
-              </Link>
+                <Link to="/todo">
+                <img className="clipboard" src={clipboard} />
+                </Link>
             </div>
             <div class="chat-button">
-            <Link to="/main">
+              <Link to="/main">
               <img className="friend" src={friend} />
               </Link>
             </div>
             <div class="write-button">
-            <Link to="/journ">
-              <img className="Journal" src={journal}/>
+              <Link to="/journ">
+              <img className="journal" src={journal}/>
               </Link>
             </div>        
           </div>
@@ -68,48 +71,49 @@ const Home = () => {
         {/* </div> */}
        
       </div>
-       <div className="flex items-end">
-        
-     
-      <img
-          className="mascot"
-          src={mascot}
-          style={{
-            transform: "translateX(100%) translateY(30%)",
-            width: "500px", 
-            height: "500px", 
-          }}
-          alt="Mascot"
-        />
-     </div>
-
-
-    {/* /*
-    <div
-      className="max-w-screen-lg mx-auto 
-        flex flex-col items-center justify-center h-full p-10 md:flex-row  relative"
-    >
-      <div className="flex flex-col">
-        <Hero />
-        <div className="flex">
-          <Button variant="outlined">
-            <Link to="/main">Get Started!</Link>
+        <div class="journal-sec"> 
+          <div class="title-sec">
+            <h1 class="title">Journal Your Heart!</h1>
+          </div>
+          <form class="diary">
+            <label class="diary-label">
+            Title
+            <input class="text1" type="text" name="name" 
+               placeholder="Name of entry ✏️"
+            />
+            </label>
+            <label class="diary-label">
+            Entry
+            <textarea class="text2"
+              placeholder="What's on your mind today? 💭"
+            />
+            </label>
+            <Button sx={[
+              { color: 'white', 
+                backgroundColor: '#582869',
+                width: 250,
+                height: 70,
+                marginTop: 5,
+                marginBottom: 0,
+                borderRadius:3,
+                fontFamily:'Bubblegum Regular',
+                fontSize: 35,
+                '&:hover': {
+                  color: '#252B48;',
+                  backgroundColor:'#64CCC5',
+                },
+              },
+            ]} >
+            <Link to="/">Submit</Link>
           </Button>
+          </form>
         </div>
-      </div>
-
-      <div className="flex w-full ">
-        <img
-          className="absolute top-[188.62px] left-[500px] w-[900.34px] h-[809.44px]"
-          alt=""
-          src="/group-16.svg"
-        />
+      <div class="character-blob">
+        <img class="blob" src={blob} />
       </div>
     </div>
-    
-    */ }
-    </div>
+  </div>
   );
 };
 
-export default Home;
+export default Journ;

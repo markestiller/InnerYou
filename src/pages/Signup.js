@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import mascot from '../assets/Group 5 (1).svg';
 import "../SignUp.css";
+import "../index.css";
 import mascotfriend from '../assets/blob.svg';
 
 const Signup = () => {

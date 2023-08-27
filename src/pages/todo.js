@@ -3,8 +3,11 @@ import Hero from "../components/Hero";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import RectangleComponent from "../components/RectangleComponent";
+// import Chatbot from "../components/Chatbot";
+import generatedActivities from "../components/Chatbot";
 import { ReactComponent as Background } from "../backgrounds/Desktop - 10 (1).svg";
 import "../Home.css";
+import "../index.css";
 import logo from "../assets/Group 9.svg";
 import flame from "../assets/Vector.svg";
 import clipboard from "../assets/board.svg";
@@ -12,12 +15,26 @@ import friend from "../assets/friend.svg";
 import journal from "../assets/journal.svg";
 import mascot from "../assets/Group 4 (1).svg";
 
-const ToDo = ({ generatedActivities }) => {
-  const [tasks, setTasks] = useState(generatedActivities.map((activity, index) => ({
-    id: index + 1,
-    text: activity,
-    completed: false,
-  })));
+const ToDo = ({ generatedActivities = []}) => {
+//   const [tasks, setTasks] = useState(generatedActivities.map((activity, index) => ({
+//     id: index + 1,
+//     text: activity,
+//     completed: false,
+//   })));
+
+//   const handleTaskToggle = (taskId) => {
+//     setTasks((prevTasks) =>
+//       prevTasks.map((task) =>
+//         task.id === taskId ? { ...task, completed: !task.completed } : task
+//       )
+//     );
+//   };
+const [tasks, setTasks] = useState([
+    { id: 1, text: "Task 1", completed: false },
+    { id: 2, text: "Task 2", completed: false },
+    { id: 3, text: "Task 3", completed: false },
+    
+  ]);
 
   const handleTaskToggle = (taskId) => {
     setTasks((prevTasks) =>
@@ -41,7 +58,7 @@ const ToDo = ({ generatedActivities }) => {
     height: "100px",
     padding: "20px",
     textAlign: "center",
-    transform: "translateX(0%) translateY(-80%)",
+    transform: "translateX(0%) translateY(-200%)",
   };
   const formTodoStyle = {
     transform: "translateX(65%) translateY(20%)", // Center horizontally and vertically
@@ -54,12 +71,14 @@ const ToDo = ({ generatedActivities }) => {
     justifyContent: "center", // Center content vertically
   };
   const headingStyle = {
-    fontFamily: "Bubblegum, sans-serif", // Use the font-family you defined
-    fontSize: "24px", // Change the font size if needed
+    fontFamily: 'Bubblegum Sans, sans-serif',
+    fontSize: "30px", // Change the font size if needed
     fontWeight: "bold", // Change the font weight if needed
-    color: "#333", // Change the text color if needed
+    color: "white", // Change the text color if needed
+    
   };
   return (
+    
     <div class="all">
       <div class="top-nav">
         <div class="flex items-left">
@@ -98,7 +117,7 @@ const ToDo = ({ generatedActivities }) => {
             </Link>
           </div>
           <div class="write-button">
-            <Link to="/journal">
+            <Link to="/journ">
               <img className="Journal" src={journal} alt="Journal" />
             </Link>
           </div>
@@ -107,24 +126,27 @@ const ToDo = ({ generatedActivities }) => {
       {/* <div className="todo-page" > */}
       <div className="form-todo" style={formTodoStyle}>
         <div style={backgroundBoxStyle}>
-        <h1 class="daily-objectives-heading">Daily Objectives</h1>
+        <h1 style={headingStyle}>Daily Objectives</h1>
         </div>
         <ul>
-          {tasks.map((task) => (
-            <li key={task.id}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={task.completed}
-                  onChange={() => handleTaskToggle(task.id)}
-                />
-                <span className={task.completed ? "completed" : ""}>
-                  {task.text}
-                </span>
-              </label>
-            </li>
-          ))}
-        </ul>
+      {tasks.map((task) => (
+        <li key={task.id} style={{
+            textDecoration: task.completed ? 'line-through' : 'none',
+            color: task.completed ? 'gray' : 'black',
+          }}>
+            <label>
+              <input
+                type="checkbox"
+                checked={task.completed}
+                onChange={() => handleTaskToggle(task.id)}
+              />
+              <span className={task.completed ? "completed" : ""}>
+                {task.text}
+              </span>
+            </label>
+          </li>
+      ))}
+    </ul>
       </div>
       {/* </div> */}
       <div className="flex items-end">

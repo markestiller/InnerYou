@@ -1,0 +1,71 @@
+.all-after{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.journal-sec{
+    width: 1100px;
+    height: 600px;
+    background-color: #F9EAF7; 
+    border-radius: 20px;
+    margin-left: auto;
+    margin-top: 0px;
+    margin-right: -250px;
+
+}
+
+.title-sec{
+    width: 1100px;
+    height: 100px;
+    background-color: #582869;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body{
+    background-color: #EAF9F0;
+}
+
+.title{
+    color:  #F9EAF7; 
+    font-size: 50px;
+}
+
+.diary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.diary-label{
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    color: #252B48;
+    padding-top: 10px;
+}
+
+.text1{
+    width: 1000px;
+    height: 50px;
+    padding: 15px;
+    border-radius: 7px;
+}
+
+.text2{
+    width: 1000px;
+    height: 200px;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.character-blob{
+    margin-top: 450px;
+    margin-right: 30px;
+}
