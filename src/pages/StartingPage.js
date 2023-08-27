@@ -1,8 +1,9 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import { ReactComponent as Background } from '../backgrounds/Desktop - 8 (1).svg';
 // import "../StartingPage.css";
+import starter from '../assets/starter.svg';
+
 
 
 const StartingPage = () => {
@@ -10,7 +11,7 @@ const StartingPage = () => {
     position: "absolute",
     bottom: "0px", // Adjust the vertical position as needed
     left: "50%",
-    transform: "translateX(-50%) translateY(20%)",
+    transform: "translateX(-50%) translateY(-30%)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -18,7 +19,19 @@ const StartingPage = () => {
   };
   return(
     <div className="flex justify-end items-center"> 
-      <Background />
+    <div class="promt">
+      {/* <img src={starter} style={{transform: "translateX(-50%) translateY(20%)"}} /> */}
+      <img
+          className="starter"
+          src={starter}
+          style={{
+            transform: "translateX(-30%) translateY(10%)",
+            width: "800px", 
+            height: "700px", 
+          }}
+          alt="Mascot"
+        />
+    </div>
       <div  style={buttonContainerStyle}>
         {/* <div className="flex"> */}
           <Button sx={[
@@ -32,7 +45,7 @@ const StartingPage = () => {
                 fontSize: 35,
                 '&:hover': {
                   color: '#252B48',
-                  backgroundColor: 'white',
+                  backgroundColor: '#64CCC5',
                 },
               },
             ]} >
@@ -49,7 +62,7 @@ const StartingPage = () => {
                 fontSize: 35,
                 '&:hover': {
                   color: '#252B48',
-                  backgroundColor: 'white',
+                  backgroundColor: '#A464CC',
                 },
               },
             ]} >

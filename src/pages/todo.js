@@ -1,7 +1,10 @@
 import React from "react";
-import Activities from "../components/Activities";
+import Hero from "../components/Hero";
+import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import Chatbot from "../components/Chatbot";
+import RectangleComponent from "../components/RectangleComponent";
+import { ReactComponent as Background } from '../backgrounds/Desktop - 10 (1).svg';
+import "../Home.css";
 import logo from "../assets/Group 9.svg";
 import flame from "../assets/Vector.svg";
 import clipboard from "../assets/board.svg";
@@ -9,7 +12,8 @@ import friend from "../assets/friend.svg";
 import journal from "../assets/journal.svg";
 import mascot from '../assets/Group 4 (1).svg';
 
-function Main() {
+
+const ToDo= () => {
   const NavContainerStyle = {
     position: "absolute",
     bottom: "150px", // Adjust the vertical position as needed
@@ -19,6 +23,7 @@ function Main() {
     flexDirection: "column",
     alignItems: "left",
   };
+  
   return (
     <div class="all" > 
     <div class="top-nav">
@@ -62,11 +67,9 @@ function Main() {
         {/* </div> */}
        
       </div>
-    <div className="w-full h-screen bg-[#EAF9F0]">
-      <Chatbot />
-    </div>
+
     </div>
   );
-}
+};
 
-export default Main;
+export default ToDo;

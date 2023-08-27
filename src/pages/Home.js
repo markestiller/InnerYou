@@ -10,21 +10,22 @@ import flame from "../assets/Vector.svg";
 import clipboard from "../assets/board.svg";
 import friend from "../assets/friend.svg";
 import journal from "../assets/journal.svg";
+import mascot from '../assets/Group 4 (1).svg';
 
 
 const Home = () => {
   const NavContainerStyle = {
     position: "absolute",
     bottom: "150px", // Adjust the vertical position as needed
-    left: "50%",
-    transform: "translateX(-290%)",
+    left: "57%",
+    transform: "translateX(-480%) translateY(18%)",
     display: "flex",
     flexDirection: "column",
     alignItems: "left",
   };
   
   return (
-    <div class="all"> 
+    <div class="all" > 
     <div class="top-nav">
       <div class="flex items-left">
         <img className="logoname" src={logo}/>
@@ -38,30 +39,51 @@ const Home = () => {
         <h1 class="streak">1</h1>
         </div>
       
-      </div>
+        </div>
       
       
     </div>
-      <Background />
-      <div className="flex items-left" style={{ position: "relative" }}>
+      {/* <Background /> */}
+      {/* <div className="flex items-left" style={{ position: "relative" }}> */}
         <div style={NavContainerStyle}>
           <div class="side-nav"> 
             <div class="list-button">
+            <Link to="/todo">
               <img className="clipboard" src={clipboard} />
+              </Link>
             </div>
             <div class="chat-button">
+            <Link to="/main">
               <img className="friend" src={friend} />
+              </Link>
             </div>
             <div class="write-button">
+            <Link to="/journ">
               <img className="journal" src={journal}/>
+              </Link>
             </div>        
           </div>
-        </div>
+          
+        {/* </div> */}
+       
       </div>
-    </div>
+       <div className="flex items-end">
+        
+     
+      <img
+          className="mascot"
+          src={mascot}
+          style={{
+            transform: "translateX(100%) translateY(30%)",
+            width: "500px", 
+            height: "500px", 
+          }}
+          alt="Mascot"
+        />
+     </div>
 
 
-    /*
+    {/* /*
     <div
       className="max-w-screen-lg mx-auto 
         flex flex-col items-center justify-center h-full p-10 md:flex-row  relative"
@@ -83,7 +105,9 @@ const Home = () => {
         />
       </div>
     </div>
-    */
+    
+    */ }
+    </div>
   );
 };
 
