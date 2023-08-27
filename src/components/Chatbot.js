@@ -3,7 +3,8 @@ import React, { useState } from "react";
 const Chatbot = () => {
   const [daySummary, setDaySummary] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [emotionAnalysis, setEmotionAnalysis] = useState("");
+  // const [generatedActivities, setGeneratedActivities] = useState("");
+  const [generatedActivities, setGeneratedActivities] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +20,11 @@ const Chatbot = () => {
         });
         const result = await response.json();
         console.log(result);
-        setEmotionAnalysis(result); // Store the latest emotion analysis in state
+        const activitiesArray = result.generations[0].text
+          .split("\\n") // Split by new lines
+          .map((activity) => activity.trim()); // Remove extra spaces
+        setGeneratedActivities(activitiesArray); // Store the latest generated activities in state
+        // setGeneratedActivities(result.generations[0].text); // Store the latest generated activities in state
         setErrorMessage("");
       } catch (error) {
         console.error(error);
@@ -53,6 +58,28 @@ const Chatbot = () => {
             Submit
           </button>
         </form>
+        {/* {generatedActivities && (
+          <div className="mt-4">
+            <h2 className="text-lg font-semibold mb-2">
+              Generated Activities:<br></br>
+              {generatedActivities}
+            </h2>
+          </div>
+        )} */}
+        {generatedActivities.length > 0 && (
+          <div className="mt-4">
+            <h2 className="text-lg font-semibold mb-2">
+              Suggested Activities:
+            </h2>
+            <ul className="list-disc pl-6">
+              {generatedActivities.map((activity, index) => (
+                <li key={index} className="mb-2">
+                  {activity}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -68,11 +68,12 @@ app.post("/analyze", async (req, res) => {
   try {
     const twinwordResponse = await fetch(twinwordUrl, twinwordOptions);
     const emotionAnalysisResult = await twinwordResponse.json();
-    const latestEmotion =
-      emotionAnalysisResult[emotions_detected][emotions_detected.length - 1]; // Get the latest emotion
+    console.log(emotionAnalysisResult);
+    const latestEmotion = emotionAnalysisResult.emotions_detected[0]; // Get the latest emotion
+    console.log(latestEmotion);
 
     // Integrate CohereAPI
-    const cohereApiKey = "xf21r3EH69LIPrDH86Bu2DxITqs9EtOBwHVNG1aU";
+    const cohereApiKey = "KtYIDE9Cl5NK0bo3tWBPrxuDSeT3LWMFUlUtOXfF";
     const cohereUrl = "https://api.cohere.ai/v1/generate";
     const cohereOptions = {
       method: "POST",
@@ -85,7 +86,7 @@ app.post("/analyze", async (req, res) => {
         max_tokens: 100,
         truncate: "END",
         return_likelihoods: "NONE",
-        prompt: `Generate 4 engaging activities based on ${latestEmotion} concisely`, // Use the emotion result as the prompt
+        prompt: `Generate 3 engaging activities based on ${latestEmotion} concisely`, // Use the emotion result as the prompt
       }),
     };
 
@@ -94,12 +95,12 @@ app.post("/analyze", async (req, res) => {
     console.log(cohereResult);
 
     // Combine emotion analysis and generated activities
-    const responsePayload = {
-      emotionAnalysis: emotionAnalysisResult,
-      generatedActivities: cohereResult.choices.map((choice) => choice.text),
-    };
+    // const responsePayload = {
+    //   emotionAnalysis: emotionAnalysisResult,
+    //   generatedActivities: cohereResult.choices.map((choice) => choice.text),
+    // };
 
-    res.json(responsePayload);
+    res.json(cohereResult);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "An error occurred" });
