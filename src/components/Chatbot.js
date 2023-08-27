@@ -29,6 +29,7 @@ const Chatbot = () => {
         {
           /* Pass generatedActivities to ToDo component */
         }
+
         setErrorMessage("");
       } catch (error) {
         console.error(error);
@@ -89,8 +90,5 @@ const Chatbot = () => {
     </div>
   );
 };
-
-
-
 
 export default Chatbot;
