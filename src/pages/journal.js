@@ -1,145 +1,72 @@
-import React from "react";
-import moment from 'moment';
-import ReactDOM from 'react-dom';
+/* eslint-disable */
 
-const {useState, useEffect, useRef} = React;
+// My Starter JavaScript Template
 
-function useJournal() {
-  const [entries, setEntries] = useState([]);
-  
-  const getEntriesFromStorage = () => JSON.parse(
-    window.localStorage.getItem('journalEntries')
-  );
-  const setEntriesToStorage = items => 
-  window.localStorage.setItem('journalEntries', JSON.stringify(items));
-  useEffect(() => {
-    const entriesFromStorage = getEntriesFromStorage();
-    if(entriesFromStorage) {
-      setEntries(entriesFromStorage);
+// Journal Entry Form
+
+import "../Journal.css";
+
+const entryForm = document.querySelector(`#entryForm`);
+const entryResultsSection = document.querySelector(`#entryResultsSection`);
+const entryResultItem = document.querySelector(`.entryResultItem`);
+const entryResultRow = document.querySelector(`.entryResultRow`);
+const getEntryTitle = document.getElementsByClassName(`entry-text-title`);
+const getEntryText = document.getElementsByClassName(`entry-text-box`);
+
+function addEntryToDom(event) {
+    event.preventDefault();
+    const d = new Date();
+    const month = new Array();
+    month[0] = 'January';
+    month[1] = 'February';
+    month[2] = 'March';
+    month[3] = 'April';
+    month[4] = 'May';
+    month[5] = 'June';
+    month[6] = 'July';
+    month[7] = 'August';
+    month[8] = 'September';
+    month[9] = 'October';
+    month[10] = 'November';
+    month[11] = 'December';
+    const n = month[d.getMonth()];
+    const day = d.getDay();
+    const year = d.getFullYear();
+
+
+    const heading = document.createElement(`h2`);
+    heading.className = `heading-results`;
+    heading.textContent = `Journal Entries`;
+    entryResultRow.insertAdjacentElement(`beforebegin`, heading)
+
+    // Adding Div
+    const entryDiv = document.createElement(`div`);
+    entryDiv.className = `single-entry-div`;
+    entryResultRow.appendChild(entryDiv);
+
+    // Adding Div Element h3
+    const entryHeading = document.createElement(`h3`);
+    entryHeading.className = `single-entry-heading`;
+    entryHeading.textContent = getEntryTitle[0].value;
+    entryDiv.appendChild(entryHeading);
+
+    // Adding Div Element Date
+
+    const entryDate = document.createElement(`p`);
+    entryDate.className = `single-entry-date`;
+    // eslint-disable-next-line no-cond-assign
+    if ((getEntryTitle[0].value = getEntryTitle[0].value)) {
+        entryDate.textContent = `Date Added: ${day} ${n} ${year}`;
+        entryDiv.appendChild(entryDate);
     }
-  }, []);
-  
-  const storeEntry = (entry) => {
-    const newEntries = [entry, ...entries];
-    setEntries(newEntries);
-    setEntriesToStorage(newEntries);
-  }
-  
-  const removeEntry = (index) => {
-    const newEntries = [...entries.slice(0, index), ...entries.slice(index+1)];
-    setEntries(newEntries);
-    setEntriesToStorage(newEntries);
-  }
-  
-  return [entries, storeEntry, removeEntry];
+
+    // Adding Div Element paragraph
+
+    const entryParagraph = document.createElement(`p`);
+    entryParagraph.className = `single-entry-text`;
+    entryParagraph.textContent = getEntryText[0].value;
+    entryDiv.appendChild(entryParagraph);
+    getEntryText[0].value = ``;
 }
 
-function EntryList({list, deleteEntry}) {
-  const handleDeleteClick = (index) => e => {
-    deleteEntry(index);
-  }
-  return (
-    <div className="entry-list mt-3">
-      {
-        list && list.map((item, i) => {
-          const itemDate = moment(item.date).fromNow();
-          const flagColor = item.flag ? `bg-${item.flag} text-white` : '';
-          return (
-            <div className={`card mb-2 ${flagColor}`}>
-              <div className="card-body">
-                <h4 className="card-title">{itemDate}</h4>
-                <p className="card-text">{item.message}</p>
-                <button className="btn btn-sm btn-danger" 
-                  onClick={handleDeleteClick(i)}>Delete</button>
-              </div>
-            </div>  
-          )
-        })
-      }
-    </div>
-  )
-}
-
-function Entry({addEntry}) {
-  const [message, setMessage] = useState('');
-  const [flag, setFlag] = useState('');
-  const fieldRef = useRef();
-  const handleOnChange = e => setMessage(e.target.value);
-  const handleFlagChange = e => setFlag(e.target.value);
-  const handleOnSubmit = e => {
-    e.preventDefault();
-    if(message && message.trim().length > 0) {
-      addEntry({
-        message,
-        flag,
-        date: Date.now()
-      });
-      setMessage('');
-      setFlag('');
-    }
-  }
-  
-  useEffect(() => {
-    fieldRef.current.focus();
-  }, []);
-  
-  return (
-    <form onSubmit={handleOnSubmit}>
-      <div className="form-group">
-      <label htmlFor="message">What do you wish to record:</label>
-      <textarea 
-        className="form-control"
-        value={message} 
-        onChange={handleOnChange} 
-        type="text" 
-        id="message" 
-        maxLength={100}
-        ref={fieldRef}
-        />
-      </div>
-      <div class="form-check form-check-inline mb-3">
-        <input className="form-check-input" 
-          id="flagDanger" type="radio" name="flag" 
-          value="danger" defaultChecked={flag === 'danger'} 
-          onChange={handleFlagChange}/> 
-        <label className="form-check-label bg-danger text-white mr-2 pl-2 pr-2" 
-          htmlFor="flagDanger">Critical</label>
-        <input className="form-check-input" 
-          id="flagGreen" type="radio" name="flag" 
-          value="success" defaultChecked={flag === 'success'} 
-          onChange={handleFlagChange}/>
-        <label className="form-check-label bg-success text-white mr-2 pl-2 pr-2" 
-          htmlFor="flagGreen">Normal</label>
-        <input className="form-check-input" 
-          id="flagInfo" type="radio" name="flag" 
-          value="dark" defaultChecked={flag === 'dark'} 
-          onChange={handleFlagChange}/>
-        <label className="form-check-label bg-dark text-white pl-2 pr-2" 
-          htmlFor="flagInfo">Info</label>
-      </div>
-      <button disabled={message.trim().length === 0 || !flag} 
-        className="btn btn-success form-control" 
-        type="submit">Submit</button>
-    </form>
-  );
-}
-
-function App() {
-  const [entries, storeEntry, removeEntry] = useJournal();
-  const handleAddEntry = (entry) => storeEntry(entry);
-  const handleDeleteEntry = (index) => removeEntry(index);
-  return (
-    <div className="container">
-      <h1 className="text-center">
-        <a 
-          href={`https://dev.to/chaituknag/a-simple-journal-app-using-react-localstorage-and-fun-23j8`} 
-          target="_blank"
-        >Journal</a>
-      </h1>
-      <Entry addEntry={handleAddEntry}/>
-      <EntryList list={entries} deleteEntry={handleDeleteEntry}/>
-    </div>
-  )
-}
-
-ReactDOM.render(<App/>, document.getElementById('root'));
+entryForm.addEventListener(`submit`, addEntryToDom);
