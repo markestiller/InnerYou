@@ -13,6 +13,7 @@
     margin-left: auto;
     margin-top: 0px;
     margin-right: -250px;
+    border: 0.5px solid #582869;
 
 }
 
@@ -47,8 +48,9 @@ body{
     display: flex;
     flex-direction: column;
     font-size: 25px;
-    color: #252B48;
+    color: #582869;
     padding-top: 10px;
+    font-family: 'Bubblegum Sans', sans-serif;                                  
 }
 
 .text1{
@@ -56,6 +58,7 @@ body{
     height: 50px;
     padding: 15px;
     border-radius: 7px;
+    
 }
 
 .text2{

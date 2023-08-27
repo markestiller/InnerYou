@@ -6,7 +6,32 @@ const Chatbot = () => {
   const [errorMessage, setErrorMessage] = useState("");
   // const [generatedActivities, setGeneratedActivities] = useState("");
   const [generatedActivities, setGeneratedActivities] = useState([]);
+  const backgroundBoxStyle = {
 
+    transform: "translateX(-3%) translateY(-30%)",
+
+      width: "1100px",
+      height: "100px",
+      backgroundColor: "#582869",
+      borderTopLeftRadius: "20px",
+      borderTopRightRadius: "20px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+  };
+  const formTodoStyle = {
+    transform: "translateX(-30%) translateY(-10%)",// Center horizontally and vertically
+    width: "1100px",
+    height: "600px",
+    backgroundColor: "#F9EAF7", 
+    borderRadius: "20px",
+    marginLeft: "auto",
+    marginTop: "0px",
+    marginRight: "-250px",
+    borderWidth: "0.5px",
+    borderStyle: "solid",
+    borderColor: "#582869",
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,13 +66,16 @@ const Chatbot = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#EAF9F0]">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h1 className="text-2xl font-bold mb-4">
+      <div className="bg-white p-8 rounded-lg shadow-md w-96" style={formTodoStyle}>
+      <div style={backgroundBoxStyle}>
+        <h1 className="font-bold mb-4 " style={{color:"white", fontSize: "44px",}}>
           Share Your Day in Under 200 Characters
         </h1>
+        </div>
         <form onSubmit={handleSubmit}>
           <textarea
-            className="border rounded w-full py-2 px-3 mb-3"
+            style={{fontFamily: 'Bubblegum Sans, sans-serif', fontSize: 27,borderRadius: 20,width: "1000px",height: "300px ", transform: "translateX(1.5%) translateY(3%)", paddingLeft: 5}}
+            className="border rounded"
             rows="4"
             placeholder="Write about your day (200 characters or less)"
             value={daySummary}
@@ -58,9 +86,10 @@ const Chatbot = () => {
           )}
           <button
             type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="bg-[#582869] text-white rounded hover:bg-[#64CCC5]"
+            style={{fontFamily: 'Bubblegum Sans, sans-serif', borderRadius: 20,fontSize:30,width: 200,height: 78 , transform: "translateX(200%) translateY(33%)"}}
           >
-            Submit
+            SUBMIT
           </button>
         </form>
         {/* {generatedActivities && (

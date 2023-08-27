@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Home.css";
 import "../index.css";
 import Activities from "../components/Activities";
@@ -9,7 +9,7 @@ import flame from "../assets/Vector.svg";
 import clipboard from "../assets/board.svg";
 import friend from "../assets/friend.svg";
 import journal from "../assets/journal.svg";
-import mascot from '../assets/Group 4 (1).svg';
+import mascotfriend from '../assets/blob.svg';
 
 function Main() {
   const NavContainerStyle = {
@@ -25,11 +25,13 @@ function Main() {
     <div class="all" > 
     <div class="top-nav">
       <div class="flex items-left">
+      <Link to="/">
         <img className="logoname" src={logo}/>
+        </Link>
       </div>
       <div class="flex items-right">
       <div class="progress-out mt-3"> 
-        <div class="progress-in"> </div>
+      <div class="progress-in"> </div>
         </div>
       <div class="flame">
         <img className="flame-image" src={flame} style={{ width: '50px', height: '45px', marginTop: 2, marginLeft: 3}}/>
@@ -66,6 +68,17 @@ function Main() {
       </div>
     <div className="w-full h-screen bg-[#EAF9F0]">
       <Chatbot />
+      <div className="flex items-end" style={{ position: "absolute", bottom: 0, right: 0 , transform: "translateX(70%) transformY(60%) ",}}>
+        <img
+          className="mascotfriend"
+          src={mascotfriend}
+          style={{
+            width: "450px", 
+            height: "200px", 
+          }}
+          alt="Mascot Friend"
+        />
+      </div>
     </div>
     </div>
   );

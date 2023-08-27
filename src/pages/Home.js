@@ -29,7 +29,9 @@ const Home = () => {
     <div class="all" > 
     <div class="top-nav">
       <div class="flex items-left">
+      <Link to="/">
         <img className="logoname" src={logo}/>
+        </Link>
       </div>
       <div class="flex items-right">
       <div class="progress-out mt-3"> 

@@ -31,7 +31,9 @@ const Journ= () => {
     <div class="all" > 
     <div class="top-nav">
       <div class="flex items-left">
+      <Link to="/">
         <img className="logoname" src={logo}/>
+        </Link>
       </div>
       <div class="flex items-right">
       <div class="progress-out mt-3"> 
@@ -86,6 +88,7 @@ const Journ= () => {
             Entry
             <textarea class="text2"
               placeholder="What's on your mind today? 💭"
+              
             />
             </label>
             <Button sx={[
@@ -96,7 +99,7 @@ const Journ= () => {
                 marginTop: 5,
                 marginBottom: 0,
                 borderRadius:3,
-                fontFamily:'Bubblegum Regular',
+                fontFamily: 'Bubblegum Sans, sans-serif',
                 fontSize: 35,
                 '&:hover': {
                   color: '#252B48;',
@@ -104,7 +107,7 @@ const Journ= () => {
                 },
               },
             ]} >
-            <Link to="/">Submit</Link>
+            <Link to="/journ">Submit</Link>
           </Button>
           </form>
         </div>

@@ -42,7 +42,7 @@ const StartingPage = () => {
                 height: 100,
                 marginBottom: 3,
                 borderRadius:10,
-                fontFamily:'Bubblegum Regular',
+                fontFamily: 'Bubblegum Sans, sans-serif',
                 fontSize: 35,
                 '&:hover': {
                   color: '#252B48',
@@ -59,7 +59,7 @@ const StartingPage = () => {
                 height: 100,
                 borderRadius:10,
                 marginBottom: 2,
-                fontFamily:'Bubblegum Regular',
+                fontFamily: 'Bubblegum Sans, sans-serif',
                 fontSize: 35,
                 '&:hover': {
                   color: '#252B48',
