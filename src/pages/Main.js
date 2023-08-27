@@ -1,4 +1,5 @@
 import React from "react";
+import "../Home.css";
 import Activities from "../components/Activities";
 import { Link } from "react-router-dom";
 import Chatbot from "../components/Chatbot";
@@ -53,8 +54,8 @@ function Main() {
               </Link>
             </div>
             <div class="write-button">
-            <Link to="/journ">
-              <img className="journal" src={journal}/>
+            <Link to="/journal">
+              <img className="Journal" src={journal}/>
               </Link>
             </div>        
           </div>

@@ -15,8 +15,8 @@ html {
 body {
     font-family: 'Space Mono', monospace;
     line-height: 1.6;
-    background: rgba(175, 238, 238, 0.3);
-    color: lightcoral;
+    background-color: #EAF9F0;
+    color: #252B48ue;
     margin: 0 auto;
     padding: 0;
     max-width: 900px;
@@ -95,7 +95,7 @@ header {
 
 .btn-main {
     color: lightgoldenrodyellow;
-    background-color: lightcoral;
+    background-color: midnightblue;
 }
 
 .btn-light {
@@ -112,7 +112,7 @@ button[class^='btn-']:hover,
 a[class^='btn-']:hover,
 input[class^='btn-']:hover {
     background-color: lightgoldenrodyellow;
-    color: lightcoral;
+    color: midnightblue;
     font-weight: 700;
     transform: scale(1.08);
 }
@@ -134,20 +134,20 @@ input[class^='btn-']:hover {
 }
 
 .entry-text-title:focus {
-    outline-color: lightcoral;
+    outline-color: midnightblue;
     font-family: 'Space Mono', monospace;
-    color: lightcoral;
+    color: midnightblue;
     font-size: 1rem;
 }
 
 .entry-text-title::placeholder {
-    color: lightcoral;
+    color: midnightblue;
     font-family: 'Space Mono', monospace;
     font-size: 1rem;
 }
 
 .entry-text-title::-ms-value {
-    color: lightcoral;
+    color: midnightblue;
     font-family: 'Space Mono', monospace;
     font-size: 1rem;
 }
@@ -196,14 +196,14 @@ input[class^='btn-']:hover {
 }
 
 .entry-text-box:focus {
-    outline-color: lightcoral;
+    outline-color: midnightblue;
     font-family: 'Space Mono', monospace;
-    color: lightcoral;
+    color: midnightblue;
     font-size: 1rem;
 }
 
 .entry-text-box::placeholder {
-    color: lightcoral;
+    color: midnightblue;
     font-family: 'Space Mono', monospace;
     font-size: 1rem;
 }

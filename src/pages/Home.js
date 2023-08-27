@@ -58,9 +58,9 @@ const Home = () => {
               </Link>
             </div>
             <div class="write-button">
-            <Link to="/journ">
-              <img className="journal" src={journal}/>
-              </Link>
+            {/* <Link to="/journal"> */}
+              <img className="Journal" src={journal}/>
+              {/* </Link> */}
             </div>        
           </div>
           

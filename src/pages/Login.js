@@ -24,6 +24,7 @@ const Login = () => {
     <div class="username">
       <h1 class="username-text">Username</h1>
       <div class="username-box">
+
         <textarea class="words" />
       </div>
     </div>
