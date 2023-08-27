@@ -43,7 +43,7 @@ const Login = () => {
                 marginTop: 5,
                 marginBottom: 0,
                 borderRadius:3,
-                fontFamily:'Bubblegum Regular',
+                fontFamily: 'Bubblegum Sans, sans-serif',
                 fontSize: 35,
                 '&:hover': {
                   color: 'white',
