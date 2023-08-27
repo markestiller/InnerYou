@@ -49,7 +49,7 @@ const ToDo= () => {
     height: "100px",
     padding: "20px",
     textAlign: "center",
-    marginTop: 0,
+    transform: "translateX(0%) translateY(-80%)",
   };
   const formTodoStyle = {
     transform: "translateX(65%) translateY(20%)", // Center horizontally and vertically

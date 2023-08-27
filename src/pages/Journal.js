@@ -4,7 +4,7 @@
 
 // Journal Entry Form
 
-import "../Journal.css";
+// import "../Journal.css";
 import React, { useState } from 'react';
 
 function Journal() {
