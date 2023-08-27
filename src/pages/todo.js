@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Hero from "../components/Hero";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -14,6 +14,26 @@ import mascot from '../assets/Group 4 (1).svg';
 
 
 const ToDo= () => {
+    const [tasks, setTasks] = useState([
+        { id: 1, text: "Task 1", completed: false },
+        { id: 2, text: "Task 2", completed: false },
+        { id: 3, text: "Task 3", completed: false },
+        { id: 4, text: "Task 4", completed: false },
+        { id: 5, text: "Task 5", completed: false },
+        { id: 6, text: "Task 6", completed: false },
+        { id: 7, text: "Task 7", completed: false },
+        { id: 8, text: "Task 8", completed: false },
+        { id: 9, text: "Task 9", completed: false },
+        { id: 10, text: "Task 10", completed: false },
+      ]);
+    
+      const handleTaskToggle = (taskId) => {
+        setTasks((prevTasks) =>
+          prevTasks.map((task) =>
+            task.id === taskId ? { ...task, completed: !task.completed } : task
+          )
+        );
+      };
   const NavContainerStyle = {
     position: "absolute",
     bottom: "150px", // Adjust the vertical position as needed
@@ -25,49 +45,78 @@ const ToDo= () => {
   };
   
   return (
-    <div class="all" > 
-    <div class="top-nav">
-      <div class="flex items-left">
-        <img className="logoname" src={logo}/>
-      </div>
-      <div class="flex items-right">
-      <div class="progress-out mt-3"> 
-        <div class="progress-in"> </div>
+    <div class="all">
+      <div class="top-nav">
+        <div class="flex items-left">
+          <img className="logoname" src={logo} alt="Logo" />
         </div>
-      <div class="flame">
-        <img className="flame-image" src={flame} style={{ width: '50px', height: '45px', marginTop: 2, marginLeft: 3}}/>
-        <h1 class="streak">1</h1>
-        </div>
-      
-        </div>
-      
-      
-    </div>
-      {/* <Background /> */}
-      {/* <div className="flex items-left" style={{ position: "relative" }}> */}
-        <div style={NavContainerStyle}>
-          <div class="side-nav"> 
-            <div class="list-button">
-            <Link to="/todo">
-              <img className="clipboard" src={clipboard} />
-              </Link>
-            </div>
-            <div class="chat-button">
-            <Link to="/main">
-              <img className="friend" src={friend} />
-              </Link>
-            </div>
-            <div class="write-button">
-            <Link to="/journ">
-              <img className="journal" src={journal}/>
-              </Link>
-            </div>        
+        <div class="flex items-right">
+          <div class="progress-out mt-3">
+            <div class="progress-in"> </div>
           </div>
-          
-        {/* </div> */}
-       
+          <div class="flame">
+            <img
+              className="flame-image"
+              src={flame}
+              style={{ width: "50px", height: "45px", marginTop: 2, marginLeft: 3 }}
+              alt="Flame"
+            />
+            <h1 class="streak">1</h1>
+          </div>
+        </div>
       </div>
-
+      <div style={NavContainerStyle}>
+        <div class="side-nav">
+          <div class="list-button">
+            <Link to="/todo">
+              <img className="clipboard" src={clipboard} alt="Clipboard" />
+            </Link>
+          </div>
+          <div class="chat-button">
+            <Link to="/main">
+              <img className="friend" src={friend} alt="Friend" />
+            </Link>
+          </div>
+          <div class="write-button">
+            <Link to="/journal">
+              <img className="Journal" src={journal} alt="Journal" />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="todo-page">
+        <div className="form">
+        <h1>To-Do List</h1>
+        <ul>
+          {tasks.map((task) => (
+            <li key={task.id}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={task.completed}
+                  onChange={() => handleTaskToggle(task.id)}
+                />
+                {task.text}
+              </label>
+            </li>
+          ))}
+        </ul>
+      </div>
+      </div>
+      <div className="flex items-end">
+        
+     
+      <img
+          className="mascot"
+          src={mascot}
+          style={{
+            transform: "translateX(300%) translateY(0%)",
+            width: "350px", 
+            height: "350px", 
+          }}
+          alt="Mascot"
+        />
+     </div>
     </div>
   );
 };
