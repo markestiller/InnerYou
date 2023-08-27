@@ -10,7 +10,7 @@ const Chatbot = () => {
 
     if (daySummary.length <= 200) {
       try {
-        const response = await fetch("http://localhost:3002/analyze", {
+        const response = await fetch("/analyze", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -19,7 +19,7 @@ const Chatbot = () => {
         });
         const result = await response.json();
         console.log(result);
-        setEmotionAnalysis(result.emotions_detected[-1]); // Store the latest emotion analysis in state
+        setEmotionAnalysis(result); // Store the latest emotion analysis in state
         setErrorMessage("");
       } catch (error) {
         console.error(error);
@@ -30,7 +30,7 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-sky-500 to-sky-300">
+    <div className="min-h-screen flex items-center justify-center bg-[#EAF9F0]">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
         <h1 className="text-2xl font-bold mb-4">
           Share Your Day in Under 200 Characters
