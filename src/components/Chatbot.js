@@ -26,6 +26,10 @@ const Chatbot = () => {
           .map((activity) => activity.trim()); // Remove extra spaces
         setGeneratedActivities(activitiesArray); // Store the latest generated activities in state
         // setGeneratedActivities(result.generations[0].text); // Store the latest generated activities in state
+        {
+          /* Pass generatedActivities to ToDo component */
+        }
+        <ToDo generatedActivities={generatedActivities} />;
         setErrorMessage("");
       } catch (error) {
         console.error(error);
@@ -86,9 +90,7 @@ const Chatbot = () => {
   );
 };
 
-{
-  /* Pass generatedActivities to ToDo component */
-}
-<ToDo generatedActivities={generatedActivities} />;
+
+
 
 export default Chatbot;

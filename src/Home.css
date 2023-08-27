@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Bubblegum";
+    src: url("https://fonts.googleapis.com/css?family=Bubblegum+Regular&display=swap") format("truetype");
+  }
+
 body{
     background-color: #EAF9F0;
 }

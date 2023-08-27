@@ -13,18 +13,11 @@ import journal from "../assets/journal.svg";
 import mascot from "../assets/Group 4 (1).svg";
 
 const ToDo = ({ generatedActivities }) => {
-  const [tasks, setTasks] = useState([
-    { id: 1, text: "Task 1", completed: false },
-    { id: 2, text: "Task 2", completed: false },
-    { id: 3, text: "Task 3", completed: false },
-    { id: 4, text: "Task 4", completed: false },
-    { id: 5, text: "Task 5", completed: false },
-    { id: 6, text: "Task 6", completed: false },
-    { id: 7, text: "Task 7", completed: false },
-    { id: 8, text: "Task 8", completed: false },
-    { id: 9, text: "Task 9", completed: false },
-    { id: 10, text: "Task 10", completed: false },
-  ]);
+  const [tasks, setTasks] = useState(generatedActivities.map((activity, index) => ({
+    id: index + 1,
+    text: activity,
+    completed: false,
+  })));
 
   const handleTaskToggle = (taskId) => {
     setTasks((prevTasks) =>
@@ -60,6 +53,12 @@ const ToDo = ({ generatedActivities }) => {
     alignItems: "center", // Center content horizontally
     justifyContent: "center", // Center content vertically
   };
+//   const daily-objectives-heading {
+//     font-family: "Bubblegum", sans-serif; /* Use the font-family you defined */
+//     font-size: 24px; /* Change the font size if needed */
+//     font-weight: bold; /* Change the font weight if needed */
+//     color: #333; /* Change the text color if needed */
+//   }
   return (
     <div class="all">
       <div class="top-nav">
