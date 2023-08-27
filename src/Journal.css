@@ -15,8 +15,8 @@ html {
 body {
     font-family: 'Space Mono', monospace;
     line-height: 1.6;
-    background-color: #EAF9F0;
-    color: #252B48ue;
+    background: rgba(175, 238, 238, 0.3);
+    color: midnightblue;
     margin: 0 auto;
     padding: 0;
     max-width: 900px;
@@ -232,14 +232,53 @@ input[class^='btn-']:hover {
 
 .single-entry-div {
     max-width: 100%;
-
     margin: 1em auto;
-    padding: 1em 1em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+
+    /* Stack items vertically */
+    align-items: left;
+    transform: translateX(-50px);
+    /* Adjust the value as needed */
+
+    /* Align items to the left */
+
+}
+
+.entry-info {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: flex-start;
+    /* Align items to the left */
+    margin-bottom: 5px;
+    /* Add some space between entries */
+}
+
+.single-entry-heading {
+    font-weight: bold;
+    /* Make the title bold if desired */
 }
 
 .single-entry-date {
     background-color: lightgoldenrodyellow;
-    width: 100%;
+    font-weight: bold;
+}
+
+.single-entry-text {
+    margin-top: 5px;
+    /* Add some space between date and description */
+}
+
+.entry-container {
+    display: flex;
+    flex-direction: column;
+    /* Stack entries vertically */
+    align-items: flex-start;
+    /* Align entries to the left */
+    margin-bottom: 20px;
+    /* Add some space between entries */
 }
 
 .heading-results {
