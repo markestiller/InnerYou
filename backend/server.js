@@ -37,6 +37,8 @@
 //   console.log(`Server is running on port ${port}`);
 // });
 
+require("dotenv").config(); // Load environment variables from .env file
+
 const express = require("express");
 const fetch = require("node-fetch");
 const app = express();
@@ -52,7 +54,7 @@ app.post("/analyze", async (req, res) => {
   const { text } = req.body;
 
   // Perform emotion analysis with Twinword's API
-  const twinwordApiKey = "c2a1ab95a9msh06b55a6183fe502p146ceajsn92427349b715";
+  const twinwordApiKey = process.env.TWINWORD_API_KEY;
   const twinwordUrl =
     "https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/";
   const twinwordOptions = {
@@ -73,7 +75,7 @@ app.post("/analyze", async (req, res) => {
     console.log(latestEmotion);
 
     // Integrate CohereAPI
-    const cohereApiKey = "KtYIDE9Cl5NK0bo3tWBPrxuDSeT3LWMFUlUtOXfF";
+    const cohereApiKey = process.env.COHERE_API_KEY;
     const cohereUrl = "https://api.cohere.ai/v1/generate";
     const cohereOptions = {
       method: "POST",
