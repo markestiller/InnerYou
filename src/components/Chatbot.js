@@ -7,23 +7,22 @@ const Chatbot = () => {
   // const [generatedActivities, setGeneratedActivities] = useState("");
   const [generatedActivities, setGeneratedActivities] = useState([]);
   const backgroundBoxStyle = {
-
     transform: "translateX(-3%) translateY(-30%)",
 
-      width: "1100px",
-      height: "100px",
-      backgroundColor: "#582869",
-      borderTopLeftRadius: "20px",
-      borderTopRightRadius: "20px",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+    width: "1100px",
+    height: "100px",
+    backgroundColor: "#582869",
+    borderTopLeftRadius: "20px",
+    borderTopRightRadius: "20px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   };
   const formTodoStyle = {
-    transform: "translateX(-30%) translateY(-10%)",// Center horizontally and vertically
+    transform: "translateX(-30%) translateY(-10%)", // Center horizontally and vertically
     width: "1100px",
     height: "600px",
-    backgroundColor: "#F9EAF7", 
+    backgroundColor: "#F9EAF7",
     borderRadius: "20px",
     marginLeft: "auto",
     marginTop: "0px",
@@ -66,15 +65,29 @@ const Chatbot = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#EAF9F0]">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96" style={formTodoStyle}>
-      <div style={backgroundBoxStyle}>
-        <h1 className="font-bold mb-4 " style={{color:"white", fontSize: "44px",}}>
-          Share Your Day in Under 200 Characters
-        </h1>
+      <div
+        className="bg-white p-8 rounded-lg shadow-md w-96"
+        style={formTodoStyle}
+      >
+        <div style={backgroundBoxStyle}>
+          <h1
+            className="font-bold mb-4 "
+            style={{ color: "white", fontSize: "44px" }}
+          >
+            Share Your Day in Under 200 Characters
+          </h1>
         </div>
         <form onSubmit={handleSubmit}>
           <textarea
-            style={{fontFamily: 'Bubblegum Sans, sans-serif', fontSize: 27,borderRadius: 20,width: "1000px",height: "300px ", transform: "translateX(1.5%) translateY(3%)", paddingLeft: 5}}
+            style={{
+              fontFamily: "Bubblegum Sans, sans-serif",
+              fontSize: 27,
+              borderRadius: 20,
+              width: "1000px",
+              height: "300px ",
+              transform: "translateX(1.5%) translateY(3%)",
+              paddingLeft: 5,
+            }}
             className="border rounded"
             rows="4"
             placeholder="Write about your day (200 characters or less)"
@@ -87,7 +100,14 @@ const Chatbot = () => {
           <button
             type="submit"
             className="bg-[#582869] text-white rounded hover:bg-[#64CCC5]"
-            style={{fontFamily: 'Bubblegum Sans, sans-serif', borderRadius: 20,fontSize:30,width: 200,height: 78 , transform: "translateX(200%) translateY(33%)"}}
+            style={{
+              fontFamily: "Bubblegum Sans, sans-serif",
+              borderRadius: 20,
+              fontSize: 30,
+              width: 200,
+              height: 78,
+              transform: "translateX(200%) translateY(33%)",
+            }}
           >
             SUBMIT
           </button>
@@ -100,7 +120,7 @@ const Chatbot = () => {
             </h2>
           </div>
         )} */}
-        {generatedActivities.length > 0 && (
+        {/* {generatedActivities.length > 0 && (
           <div className="mt-4">
             <h2 className="text-lg font-semibold mb-2">
               Suggested Activities:
@@ -113,8 +133,7 @@ const Chatbot = () => {
               ))}
             </ul>
           </div>
-        )}
-        
+        )} */}
       </div>
     </div>
   );
