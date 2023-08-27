@@ -5,6 +5,7 @@ import StartingPage from "./pages/StartingPage";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Journal from "./pages/Journal";
+import ToDo from "./pages/todo";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/Journal",
     element: <Journal />,
+  },
+  {
+    path: "/todo",
+    element: <ToDo />,
   },
 ]);
 

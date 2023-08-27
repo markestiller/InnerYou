@@ -53,12 +53,12 @@ const ToDo = ({ generatedActivities }) => {
     alignItems: "center", // Center content horizontally
     justifyContent: "center", // Center content vertically
   };
-//   const daily-objectives-heading {
-//     font-family: "Bubblegum", sans-serif; /* Use the font-family you defined */
-//     font-size: 24px; /* Change the font size if needed */
-//     font-weight: bold; /* Change the font weight if needed */
-//     color: #333; /* Change the text color if needed */
-//   }
+  const headingStyle = {
+    fontFamily: "Bubblegum, sans-serif", // Use the font-family you defined
+    fontSize: "24px", // Change the font size if needed
+    fontWeight: "bold", // Change the font weight if needed
+    color: "#333", // Change the text color if needed
+  };
   return (
     <div class="all">
       <div class="top-nav">
@@ -107,7 +107,7 @@ const ToDo = ({ generatedActivities }) => {
       {/* <div className="todo-page" > */}
       <div className="form-todo" style={formTodoStyle}>
         <div style={backgroundBoxStyle}>
-          <h1>Daily Objectives</h1>
+        <h1 class="daily-objectives-heading">Daily Objectives</h1>
         </div>
         <ul>
           {tasks.map((task) => (
