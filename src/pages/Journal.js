@@ -5,68 +5,92 @@
 // Journal Entry Form
 
 import "../Journal.css";
+import React, { useState } from 'react';
 
-const entryForm = document.querySelector(`#entryForm`);
-const entryResultsSection = document.querySelector(`#entryResultsSection`);
-const entryResultItem = document.querySelector(`.entryResultItem`);
-const entryResultRow = document.querySelector(`.entryResultRow`);
-const getEntryTitle = document.getElementsByClassName(`entry-text-title`);
-const getEntryText = document.getElementsByClassName(`entry-text-box`);
+function Journal() {
+    const [entries, setEntries] = useState([]);
+    const [entryTitle, setEntryTitle] = useState('');
+    const [entryText, setEntryText] = useState('');
 
-function addEntryToDom(event) {
-    event.preventDefault();
-    const d = new Date();
-    const month = new Array();
-    month[0] = 'January';
-    month[1] = 'February';
-    month[2] = 'March';
-    month[3] = 'April';
-    month[4] = 'May';
-    month[5] = 'June';
-    month[6] = 'July';
-    month[7] = 'August';
-    month[8] = 'September';
-    month[9] = 'October';
-    month[10] = 'November';
-    month[11] = 'December';
-    const n = month[d.getMonth()];
-    const day = d.getDay();
-    const year = d.getFullYear();
+    const addEntry = (e) => {
+        e.preventDefault();
+
+        const newEntry = {
+            title: entryTitle,
+            text: entryText,
+            date: new Date().toLocaleDateString(),
+        };
+
+        setEntries([...entries, newEntry]);
+        setEntryTitle('');
+        setEntryText('');
+    };
+
+    return (
+        <div>
+            <header>
+                <h1 className="title">My Personal Journal</h1>
+            </header>
+
+            <section className="section journal-section">
+                <div className="container">
+                    <div className="container-row container-row-journal">
+                        <div className="container-item container-item-journal">
+                            <form id="entryForm" onSubmit={addEntry}>
+                                <label htmlFor="entry-title" className="journal-label">
+                                    Entry Title
+                                </label>
+                                <input
+                                    type="text"
+                                    name="entry-title"
+                                    id="entry-title"
+                                    className="entry-text-title"
+                                    placeholder="Name of entry ✏️"
+                                    value={entryTitle}
+                                    onChange={(e) => setEntryTitle(e.target.value)}
+                                />
+                                <label htmlFor="entry" className="journal-label">
+                                    Today's Entry
+                                </label>
+                                <textarea
+                                    name="daily-entry"
+                                    id="entry"
+                                    className="entry-text-box"
+                                    placeholder="What's on your mind today? 💭"
+                                    value={entryText}
+                                    onChange={(e) => setEntryText(e.target.value)}
+                                ></textarea>
+                                <button className="btn-main entry-submit-btn" type="submit">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="section sectionEntryResults" id="entryResultsSection">
+                <div className="container">
+                    <div className="container-row entryResultRow">
+                        {entries.map((entry, index) => (
+
+                            <div key={index} className="entry-container">
+                                <div className="single-entry-div">
+                                    <div className="entry-info">
+                                        <h3 className="single-entry-heading">{entry.title}</h3>
+                                        <p className="single-entry-date">Date Added: {entry.date}</p>
+                                    </div>
+                                    <p className="single-entry-text">{entry.text}</p>
+                                </div>
+                            </div>
+                        ))}
 
 
-    const heading = document.createElement(`h2`);
-    heading.className = `heading-results`;
-    heading.textContent = `Journal Entries`;
-    entryResultRow.insertAdjacentElement(`beforebegin`, heading)
-
-    // Adding Div
-    const entryDiv = document.createElement(`div`);
-    entryDiv.className = `single-entry-div`;
-    entryResultRow.appendChild(entryDiv);
-
-    // Adding Div Element h3
-    const entryHeading = document.createElement(`h3`);
-    entryHeading.className = `single-entry-heading`;
-    entryHeading.textContent = getEntryTitle[0].value;
-    entryDiv.appendChild(entryHeading);
-
-    // Adding Div Element Date
-
-    const entryDate = document.createElement(`p`);
-    entryDate.className = `single-entry-date`;
-    // eslint-disable-next-line no-cond-assign
-    if ((getEntryTitle[0].value = getEntryTitle[0].value)) {
-        entryDate.textContent = `Date Added: ${day} ${n} ${year}`;
-        entryDiv.appendChild(entryDate);
-    }
-
-    // Adding Div Element paragraph
-
-    const entryParagraph = document.createElement(`p`);
-    entryParagraph.className = `single-entry-text`;
-    entryParagraph.textContent = getEntryText[0].value;
-    entryDiv.appendChild(entryParagraph);
-    getEntryText[0].value = ``;
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
 }
 
-entryForm.addEventListener(`submit`, addEntryToDom);
+export default Journal;
