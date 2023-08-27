@@ -8,10 +8,15 @@
 import React, { useState } from 'react';
 
 function Journal() {
+<<<<<<< HEAD
+=======
+    // Define state to store journal entries
+>>>>>>> f8e035d (journal work)
     const [entries, setEntries] = useState([]);
     const [entryTitle, setEntryTitle] = useState('');
     const [entryText, setEntryText] = useState('');
 
+<<<<<<< HEAD
     const addEntry = (e) => {
         e.preventDefault();
 
@@ -84,13 +89,69 @@ function Journal() {
                                 </div>
                             </div>
                         ))}
+=======
+    // Function to add an entry
+    const addEntry = (e) => {
+        e.preventDefault();
+>>>>>>> f8e035d (journal work)
 
+        // Create a new entry object
+        const newEntry = {
+            title: entryTitle,
+            text: entryText,
+            date: new Date().toLocaleDateString(),
+        };
 
+<<<<<<< HEAD
                     </div>
                 </div>
             </section>
+=======
+        // Update the entries state
+        setEntries([...entries, newEntry]);
+
+        // Clear the input fields
+        setEntryTitle('');
+        setEntryText('');
+    };
+
+    return (
+        <div>
+            <h2 className="heading-results">Journal Entries</h2>
+
+            <form id="entryForm" onSubmit={addEntry}>
+                <input
+                    type="text"
+                    className="entry-text-title"
+                    placeholder="Title"
+                    value={entryTitle}
+                    onChange={(e) => setEntryTitle(e.target.value)}
+                />
+                <textarea
+                    className="entry-text-box"
+                    placeholder="Your journal entry..."
+                    value={entryText}
+                    onChange={(e) => setEntryText(e.target.value)}
+                />
+                <button type="submit">Add Entry</button>
+            </form>
+
+            <div id="entryResultsSection">
+                {entries.map((entry, index) => (
+                    <div key={index} className="single-entry-div">
+                        <h3 className="single-entry-heading">{entry.title}</h3>
+                        <p className="single-entry-date">Date Added: {entry.date}</p>
+                        <p className="single-entry-text">{entry.text}</p>
+                    </div>
+                ))}
+            </div>
+>>>>>>> f8e035d (journal work)
         </div>
     );
 }
 
+<<<<<<< HEAD
 export default Journal;
+=======
+export default Journal;
+>>>>>>> f8e035d (journal work)

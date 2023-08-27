@@ -4,8 +4,6 @@ import Main from "./pages/Main";
 import StartingPage from "./pages/StartingPage";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import ToDo from "./pages/todo";
-import Journal from "./pages/Journal";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -28,14 +26,6 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
-  },
-  {
-    path: "/journal",
-    element: <Journal/>,
-  },
-  {
-    path: "/todo",
-    element: <ToDo />,
   },
 ]);
 
