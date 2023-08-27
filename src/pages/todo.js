@@ -43,7 +43,24 @@ const ToDo= () => {
     flexDirection: "column",
     alignItems: "left",
   };
-  
+  const backgroundBoxStyle = {
+    backgroundColor: "#582869", // Change to your desired background color
+    width: "600px",
+    height: "100px",
+    padding: "20px",
+    textAlign: "center",
+    marginTop: 0,
+  };
+  const formTodoStyle = {
+    transform: "translateX(65%) translateY(20%)", // Center horizontally and vertically
+    width: "600px",
+    height: "500px",
+    backgroundColor: "#F9EAF7",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center", // Center content horizontally
+    justifyContent: "center", // Center content vertically
+  };
   return (
     <div class="all">
       <div class="top-nav">
@@ -84,33 +101,34 @@ const ToDo= () => {
           </div>
         </div>
       </div>
-      <div className="todo-page">
-        <div className="form">
-        <h1>To-Do List</h1>
+      {/* <div className="todo-page" > */}
+        <div className="form-todo" style={formTodoStyle}>
+        <div style={backgroundBoxStyle}>
+        <h1>Daily Objectives</h1>
+      </div>
         <ul>
-          {tasks.map((task) => (
+            {tasks.map((task) => (
             <li key={task.id}>
-              <label>
+                <label>
                 <input
-                  type="checkbox"
-                  checked={task.completed}
-                  onChange={() => handleTaskToggle(task.id)}
+                    type="checkbox"
+                    checked={task.completed}
+                    onChange={() => handleTaskToggle(task.id)}
                 />
-                {task.text}
-              </label>
+                <span className={task.completed ? "completed" : ""}>{task.text}</span>
+                </label>
             </li>
-          ))}
+            ))}
         </ul>
-      </div>
-      </div>
+        </div>
+        {/* </div> */}
       <div className="flex items-end">
         
-     
       <img
           className="mascot"
           src={mascot}
           style={{
-            transform: "translateX(300%) translateY(0%)",
+            transform: "translateX(300%) translateY(-50%)",
             width: "350px", 
             height: "350px", 
           }}
@@ -118,6 +136,7 @@ const ToDo= () => {
         />
      </div>
     </div>
+  
   );
 };
 

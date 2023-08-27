@@ -1,47 +1,61 @@
-.page{
-    width: 100vw;
-    height: 100vh;
+/* ToDo.css */
+
+/* .todo-page {
+    /* width: 3%;
+    height: 300px; */
+    /* background-color: #F9EAF7;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.form{
-    width: 600px;
-    height: 600px;
+    border-radius: 10px;
+    align-self: center;
+    justify-self: center;
+  } */
+   */
+.form-todo {
+    /* width: 300px;
+    height: 300px; */
     background-color: #F9EAF7;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 0px;
+    border-radius: 10px;
     align-self: center;
     justify-self: center;
 }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    align-items: "center";
+  }
+  
+  li {
+    margin: 8px 0;
+    align-items: "center";
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  /* Customize completed tasks */
+  input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+    color: #aaa;
+  }
+  
+  /* Add some colors */
+  .todo-page h1 {
+    color: #F9EAF7;
+  }
 
-.log{
-    font-size: 50px;
-    color: #EAF9F0;
-}
-
-.username-box, .password-box, .words{
-    width: 500px;
-    height: 70px;
-    background-color: #EAF9F0;
-    border-radius: 5px;
-    font-size: 30px;
-}
-.words{
-    color:  #252B48;
-}
-
-.username-text, .password-text{
-    font-size: 25px;
-    color: #EAF9F0;
-    padding: 10px;
-}
-
-.placeholder{
-    font-size: 30px;
-    color: grey;
-}
+  
