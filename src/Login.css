@@ -24,11 +24,15 @@
     color: #EAF9F0;
 }
 
-.username-box, .password-box{
+.username-box, .password-box, .words{
     width: 500px;
     height: 70px;
     background-color: #EAF9F0;
     border-radius: 5px;
+    font-size: 30px;
+}
+.words{
+    color:  #252B48;
 }
 
 .username-text, .password-text{

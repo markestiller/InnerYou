@@ -19,15 +19,19 @@ const Login = () => {
           alt="Mascot"
         />
       </div>
-      <div class="form" style={{transform: "translateX(-100%) translateY(5%)"}}>
+      <div class="form" style={{transform: "translateX(-70%) translateY(0%)"}}>
     <h1 class="log">Log In Now!</h1>
     <div class="username">
       <h1 class="username-text">Username</h1>
-      <div class="username-box"></div>
+      <div class="username-box">
+        <textarea class="words" />
+      </div>
     </div>
     <div class="password">
       <h1 class="password-text">Password</h1>
-      <div class="password-box"></div>
+      <div class="password-box">
+      <textarea class="words" />
+      </div>
     </div>
     <Button sx={[
               { color: '#252B48', 

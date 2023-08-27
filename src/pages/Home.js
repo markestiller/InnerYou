@@ -17,8 +17,8 @@ const Home = () => {
   const NavContainerStyle = {
     position: "absolute",
     bottom: "150px", // Adjust the vertical position as needed
-    left: "50%",
-    transform: "translateX(-480%) translateY(22%)",
+    left: "57%",
+    transform: "translateX(-480%) translateY(18%)",
     display: "flex",
     flexDirection: "column",
     alignItems: "left",
@@ -48,7 +48,7 @@ const Home = () => {
         <div style={NavContainerStyle}>
           <div class="side-nav"> 
             <div class="list-button">
-            <Link to="/">
+            <Link to="/todo">
               <img className="clipboard" src={clipboard} />
               </Link>
             </div>
@@ -58,7 +58,7 @@ const Home = () => {
               </Link>
             </div>
             <div class="write-button">
-            <Link to="/journal">
+            <Link to="/journ">
               <img className="journal" src={journal}/>
               </Link>
             </div>        
@@ -74,7 +74,7 @@ const Home = () => {
           className="mascot"
           src={mascot}
           style={{
-            transform: "translateX(125%) translateY(20%)",
+            transform: "translateX(100%) translateY(30%)",
             width: "500px", 
             height: "500px", 
           }}

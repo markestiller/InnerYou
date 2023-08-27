@@ -25,7 +25,7 @@ const StartingPage = () => {
           className="starter"
           src={starter}
           style={{
-            transform: "translateX(-40%) translateY(10%)",
+            transform: "translateX(-30%) translateY(10%)",
             width: "800px", 
             height: "700px", 
           }}
@@ -45,7 +45,7 @@ const StartingPage = () => {
                 fontSize: 35,
                 '&:hover': {
                   color: '#252B48',
-                  backgroundColor: 'white',
+                  backgroundColor: '#64CCC5',
                 },
               },
             ]} >
@@ -62,7 +62,7 @@ const StartingPage = () => {
                 fontSize: 35,
                 '&:hover': {
                   color: '#252B48',
-                  backgroundColor: 'white',
+                  backgroundColor: '#A464CC',
                 },
               },
             ]} >
